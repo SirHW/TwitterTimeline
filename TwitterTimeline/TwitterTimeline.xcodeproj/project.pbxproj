@@ -13,6 +13,8 @@
 		834948E81ACD7800001CA95D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 834948E71ACD7800001CA95D /* Images.xcassets */; };
 		834948EB1ACD7800001CA95D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 834948E91ACD7800001CA95D /* LaunchScreen.xib */; };
 		834948F71ACD7801001CA95D /* TwitterTimelineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834948F61ACD7801001CA95D /* TwitterTimelineTests.swift */; };
+		83496F4C1ACEC076009398ED /* UserTimelineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83496F4B1ACEC076009398ED /* UserTimelineVC.swift */; };
+		83496F4E1ACEC08E009398ED /* HashtagTimelineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83496F4D1ACEC08E009398ED /* HashtagTimelineVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		834948F01ACD7800001CA95D /* TwitterTimelineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TwitterTimelineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		834948F51ACD7801001CA95D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		834948F61ACD7801001CA95D /* TwitterTimelineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterTimelineTests.swift; sourceTree = "<group>"; };
+		83496F4B1ACEC076009398ED /* UserTimelineVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTimelineVC.swift; sourceTree = "<group>"; };
+		83496F4D1ACEC08E009398ED /* HashtagTimelineVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashtagTimelineVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,8 @@
 			children = (
 				834948DD1ACD7800001CA95D /* AppDelegate.swift */,
 				834948E41ACD7800001CA95D /* Main.storyboard */,
+				83496F4B1ACEC076009398ED /* UserTimelineVC.swift */,
+				83496F4D1ACEC08E009398ED /* HashtagTimelineVC.swift */,
 				834948E71ACD7800001CA95D /* Images.xcassets */,
 				834948E91ACD7800001CA95D /* LaunchScreen.xib */,
 				834948DF1ACD7800001CA95D /* TwitterTimeline.xcdatamodeld */,
@@ -213,6 +219,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				834948E11ACD7800001CA95D /* TwitterTimeline.xcdatamodeld in Sources */,
+				83496F4C1ACEC076009398ED /* UserTimelineVC.swift in Sources */,
+				83496F4E1ACEC08E009398ED /* HashtagTimelineVC.swift in Sources */,
 				834948DE1ACD7800001CA95D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -405,6 +413,7 @@
 				834948FC1ACD7801001CA95D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		834948FD1ACD7801001CA95D /* Build configuration list for PBXNativeTarget "TwitterTimelineTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +422,7 @@
 				834948FF1ACD7801001CA95D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
