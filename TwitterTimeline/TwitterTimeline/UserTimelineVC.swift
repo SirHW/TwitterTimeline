@@ -16,6 +16,9 @@ class UserTimelineVC: UIViewController {
     let twitterType = ACAccountStore().accountTypeWithAccountTypeIdentifier(ACAccountTypeIdentifierTwitter)
     var twitterAccount: ACAccount?
     
+    // Array of Tweets
+    var tweets = [Tweet]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,6 +35,15 @@ class UserTimelineVC: UIViewController {
             }
         }
 
+    }
+    
+    // MARK: - struct Tweet
+    struct Tweet {
+        var text: String
+        var user: String
+        var retweet_count: Int
+        var favorite_count: Int
+        var lang: String
     }
 
 }
