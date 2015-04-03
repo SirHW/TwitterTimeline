@@ -37,6 +37,29 @@ class UserTimelineVC: UIViewController {
 
     }
     
+    // MARK: - TableView methods
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tweets.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("UserTweets", forIndexPath: indexPath) as UITableViewCell
+        
+        let aktuellerTweet = tweets[indexPath.row]
+        let titel = "\(aktuellerTweet.text)"
+        let untertitel = aktuellerTweet.user
+        
+        cell.textLabel?.text = titel
+        cell.detailTextLabel?.text = untertitel
+        
+        return cell
+    }
+
+    
     // MARK: - struct Tweet
     struct Tweet {
         var text: String
