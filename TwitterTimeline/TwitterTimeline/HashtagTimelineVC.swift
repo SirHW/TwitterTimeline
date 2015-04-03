@@ -30,6 +30,8 @@ class HashtagTimelineVC: UIViewController, UITableViewDataSource, UITableViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationItem.title = "Tweets for \(hashtag)"
+        
         // get Twitter Account Access
         accountStore.requestAccessToAccountsWithType(twitterType, options: nil) {
             success, error in
