@@ -29,6 +29,8 @@ class UserTimelineVC: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.title = "Tweets from \(username)"
 
         // get Twitter Account Access
         accountStore.requestAccessToAccountsWithType(twitterType, options: nil) {
@@ -77,7 +79,7 @@ class UserTimelineVC: UIViewController, UITableViewDataSource, UITableViewDelega
                 }
             }
             else {
-                println("Verbindung zu Twitter fehlgeschlagen: \(error)")
+                println("\(response.statusCode): Verbindung zu Twitter fehlgeschlagen: \(error)")
             }
             
         }
