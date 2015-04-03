@@ -8,8 +8,13 @@
 
 import UIKit
 import Accounts
+import Social
 
 class HashtagTimelineVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    // twitter timeline settings
+    let hashtag = "#Swift" // set the username here
+    let number = "5" // set the number of tweets in the timeline here
     
     // Twitter Account
     let accountStore = ACAccountStore()
@@ -33,12 +38,52 @@ class HashtagTimelineVC: UIViewController, UITableViewDataSource, UITableViewDel
                 if alleAccounts.count > 0 {
                     self.twitterAccount = alleAccounts.last as ACAccount?
                 }
+                self.getTwitterTimeline()
             }else{
                 println(error.localizedDescription)
             }
         }
     }
     
+    // Mark: - Twitter API Requests
+    func getTwitterTimeline(){
+
+        let url = NSURL(string: "https://api.twitter.com/1.1/search/tweets.json")!
+        
+        let request = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: .GET, URL: url, parameters: ["q": hashtag, "count": number])
+        request.account = twitterAccount
+        
+        request.performRequestWithHandler { data, response, error in
+            
+            if response.statusCode == 200 {
+                
+                let stringData = NSString(data: data, encoding: NSUTF8StringEncoding)
+                
+                let json = NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers, error: nil) as [String: AnyObject]
+                
+                let statuses = json["statuses"] as [[String: AnyObject]]
+                
+                for dict in statuses {
+                    let text = dict["text"] as String
+                    let user = dict["user"] as [String: AnyObject]
+                    let username = user["screen_name"] as String
+                    let retweet_count = dict["retweet_count"] as Int
+                    let favorite_count = dict["favorite_count"] as Int
+                    let lang = dict["lang"] as String
+                    let neuerTweet = Tweet(text: text, user: username, retweet_count: retweet_count, favorite_count: favorite_count, lang: lang)
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.tweets.append(neuerTweet)
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+            else {
+                println("\(response.statusCode): Verbindung zu Twitter fehlgeschlagen: \(error)")
+            }
+            
+        }
+    }
+
     // MARK: - TableView methods
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -49,7 +94,7 @@ class HashtagTimelineVC: UIViewController, UITableViewDataSource, UITableViewDel
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("UserTweets", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("HashtagTweets", forIndexPath: indexPath) as UITableViewCell
         
         let aktuellerTweet = tweets[indexPath.row]
         let titel = "\(aktuellerTweet.text)"
