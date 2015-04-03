@@ -9,7 +9,7 @@
 import UIKit
 import Accounts
 
-class HashtagTimelineVC: UIViewController {
+class HashtagTimelineVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // Twitter Account
     let accountStore = ACAccountStore()
@@ -19,6 +19,9 @@ class HashtagTimelineVC: UIViewController {
     // Array of Tweets
     var tweets = [Tweet]()
 
+    // TableView
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,6 +37,28 @@ class HashtagTimelineVC: UIViewController {
                 println(error.localizedDescription)
             }
         }
+    }
+    
+    // MARK: - TableView methods
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tweets.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("UserTweets", forIndexPath: indexPath) as UITableViewCell
+        
+        let aktuellerTweet = tweets[indexPath.row]
+        let titel = "\(aktuellerTweet.text)"
+        let untertitel = aktuellerTweet.user
+        
+        cell.textLabel?.text = titel
+        cell.detailTextLabel?.text = untertitel
+        
+        return cell
     }
     
     // MARK: - struct Tweet
