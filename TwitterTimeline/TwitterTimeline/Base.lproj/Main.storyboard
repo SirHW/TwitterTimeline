@@ -28,13 +28,13 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UfV-gU-WUo">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eNv-PX-sCo">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -55,7 +55,13 @@
                             <constraint firstAttribute="bottom" secondItem="hZ4-6O-7Fm" secondAttribute="bottom" id="hJT-nN-vSS"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="yeg-60-dsT"/>
+                    <navigationItem key="navigationItem" id="yeg-60-dsT">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="95B-7x-dvo">
+                            <connections>
+                                <action selector="loadTimelineForHashtag:" destination="hRd-hy-g6i" id="HnU-BM-Xw4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="hZ4-6O-7Fm" id="efV-Hv-YX1"/>
                     </connections>
@@ -88,13 +94,13 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GPz-ZQ-8j3">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Tit-51-eJJ">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -115,7 +121,13 @@
                             <constraint firstItem="9wJ-ks-dJC" firstAttribute="top" secondItem="QaB-X3-tpb" secondAttribute="top" id="Wzv-Up-Ioi"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="C8m-Su-1RQ"/>
+                    <navigationItem key="navigationItem" id="C8m-Su-1RQ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="XRt-uk-WeK">
+                            <connections>
+                                <action selector="loadTimelineForUsername:" destination="4ZY-YW-h51" id="cam-mo-dvu"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="9wJ-ks-dJC" id="nXJ-yv-IBg"/>
                     </connections>
