@@ -41,9 +41,6 @@ class UserTimelineVC: UIViewController, UITableViewDataSource, UITableViewDelega
                 }
                 self.setUsername()
 //                self.getTwitterTimeline()
-                if self.username != nil { // unwrapping optional
-                    self.navigationItem.title = "Tweets from \(self.username!)"
-                }
             }else{
                 println(error.localizedDescription)
             }
@@ -66,6 +63,7 @@ class UserTimelineVC: UIViewController, UITableViewDataSource, UITableViewDelega
             // do sth.
             self.username = (alert.textFields![0] as UITextField).text
             self.getTwitterTimeline()
+            self.navigationItem.title = "Tweets from \(self.username!)"
         }))
         presentViewController(alert, animated: true, completion: nil)
     }

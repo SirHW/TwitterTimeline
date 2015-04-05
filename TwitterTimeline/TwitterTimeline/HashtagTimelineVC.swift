@@ -41,9 +41,6 @@ class HashtagTimelineVC: UIViewController, UITableViewDataSource, UITableViewDel
                 }
                 self.setHashtag()
 //                self.getTwitterTimeline()
-                if self.hashtag != nil { // unwrapping optional
-                    self.navigationItem.title = "Tweets for \(self.hashtag!)"
-                }
             }else{
                 println(error.localizedDescription)
             }
@@ -65,6 +62,7 @@ class HashtagTimelineVC: UIViewController, UITableViewDataSource, UITableViewDel
             // do sth.
             self.hashtag = (alert.textFields![0] as UITextField).text
             self.getTwitterTimeline()
+            self.navigationItem.title = "Tweets for \(self.hashtag!)"
         }))
         presentViewController(alert, animated: true, completion: nil)
     }
