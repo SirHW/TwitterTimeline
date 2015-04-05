@@ -39,7 +39,6 @@ class HashtagTimelineVC: UIViewController, UITableViewDataSource, UITableViewDel
                 if alleAccounts.count > 0 {
                     self.twitterAccount = alleAccounts.last as ACAccount?
                 }
-                self.setHashtag()
 //                self.getTwitterTimeline()
             }else{
                 println(error.localizedDescription)
@@ -47,8 +46,8 @@ class HashtagTimelineVC: UIViewController, UITableViewDataSource, UITableViewDel
         }
     }
     
-    // Mark: - UIAlertController
-    func setHashtag(){
+    // Mark: - IBAction: loadTimelineForHashtag
+    @IBAction func loadTimelineForHashtag(sender: UIBarButtonItem) {
         var alert = UIAlertController(title: "Eingabe", message: "Bitte geben Sie einen Twitter Hashtag ein", preferredStyle: .Alert)
         alert.addTextFieldWithConfigurationHandler(){
             textField in

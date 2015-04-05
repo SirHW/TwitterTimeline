@@ -39,7 +39,6 @@ class UserTimelineVC: UIViewController, UITableViewDataSource, UITableViewDelega
                 if alleAccounts.count > 0 {
                     self.twitterAccount = alleAccounts.last as ACAccount?
                 }
-                self.setUsername()
 //                self.getTwitterTimeline()
             }else{
                 println(error.localizedDescription)
@@ -48,8 +47,8 @@ class UserTimelineVC: UIViewController, UITableViewDataSource, UITableViewDelega
 
     }
     
-    // Mark: - UIAlertController
-    func setUsername(){
+    // Mark: - IBAction: loadTimelineForUsername
+    @IBAction func loadTimelineForUsername(sender: UIBarButtonItem) {
         var alert = UIAlertController(title: "Eingabe", message: "Bitte geben Sie einen Twitter Benutzernamen ein", preferredStyle: .Alert)
         alert.addTextFieldWithConfigurationHandler(){
             textField in
